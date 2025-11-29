@@ -1,6 +1,5 @@
 import styles from "../styles/Home.module.css";
 import { useEffect, useRef, useState } from "react";
-import { villas } from "../data/villas";
 import FilterBar from "../components/FilterBar";
 import BookingModal from "../components/BookingModal";
 
@@ -11,6 +10,26 @@ function Home() {
   const cardRef = useRef(null);
   const [filters, setFilters] = useState({});
 
+  // ⭐ NEW: DYNAMIC VILLAS FROM BACKEND
+  const [villaList, setVillaList] = useState([]);
+
+  useEffect(() => {
+    async function loadVillas() {
+      try {
+        const res = await fetch(
+          "http://localhost/Urbangoon-Fullstack/Backend/Urbangoon/api/get_villas.php"
+        );
+        const data = await res.json();
+        setVillaList(data);
+      } catch (err) {
+        console.error("Error loading villas:", err);
+      }
+    }
+
+    loadVillas();
+  }, []);
+
+  // ⭐ Intersection fade animation
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -63,27 +82,18 @@ function Home() {
         <h2>Featured Villas</h2>
 
         <div className={styles.cardContainer} ref={cardRef}>
-          {villas
+          {villaList
             .filter((villa) => {
-              // FILTER: LOCATION
               if (filters.location && filters.location !== villa.location)
                 return false;
 
-              // FILTER: AMENITIES
-              if (
-                filters.amenity &&
-                !villa.amenities?.includes(filters.amenity)
-              )
+              if (filters.amenity && !villa.amenities?.includes(filters.amenity))
                 return false;
 
-              // FILTER: RATING
               if (filters.rating && villa.rating < 4.0) return false;
 
-              // FILTER: PRICE
               if (filters.price) {
-                const price = parseInt(
-                  villa.price.replace("₹", "").replace(",", "")
-                );
+                const price = villa.price;
 
                 if (filters.price === "Under ₹5000" && price >= 5000)
                   return false;
@@ -108,40 +118,37 @@ function Home() {
 
               return true;
             })
-            .map((villa, index) => (
-              <div key={index} className={`${styles.card} ${styles.hidden}`}>
-                <div className={styles.cardImg}>
-                  <img
-                    src={new URL(
-                      `../assets/${villa.img}`,
-                      import.meta.url
-                    ).href}
-                    alt={villa.title}
-                  />
-                </div>
+            .map((villa) => (
+  <div key={villa.id} className={`${styles.card} ${styles.hidden}`}>
+    <div className={styles.cardImg}>
+      <img 
+        src={`/villas/${villa.image}`} 
+        alt={villa.title} 
+      />
+    </div>
 
-                <div className={styles.cardInfo}>
-                  <div className={styles.cardTop}>
-                    <h3>{villa.title}</h3>
-                    <span className={styles.rating}>⭐ {villa.rating}</span>
-                  </div>
+    <div className={styles.cardInfo}>
+      <div className={styles.cardTop}>
+        <h3>{villa.title}</h3>
+        <span className={styles.rating}>⭐ {villa.rating}</span>
+      </div>
 
-                  <p className={styles.location}>{villa.location}</p>
-                  <p className={styles.desc}>{villa.desc}</p>
-                  <p className={styles.price}>{villa.price}</p>
+      <p className={styles.location}>{villa.location}</p>
+      <p className={styles.desc}>{villa.description}</p>
+      <p className={styles.price}>₹{villa.price}</p>
 
-                  <button
-                    className={styles.bookBtn}
-                    onClick={() => {
-                      setSelectedVilla(villa);
-                      setOpenModal(true);
-                    }}
-                  >
-                    Book Now
-                  </button>
-                </div>
-              </div>
-            ))}
+      <button
+        className={styles.bookBtn}
+        onClick={() => {
+          setSelectedVilla(villa);
+          setOpenModal(true);
+        }}
+      >
+        Book Now
+      </button>
+    </div>
+  </div>
+))}
         </div>
       </section>
 

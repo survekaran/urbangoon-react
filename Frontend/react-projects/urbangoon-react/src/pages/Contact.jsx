@@ -16,34 +16,38 @@ function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus("sending");
+    setStatus("Sending...");
 
     try {
-      const res = await fetch("http://localhost/Urbangoon/contact_handler.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
-      });
+      const res = await fetch("http://localhost/Urbangoon-Fullstack/Backend/Urbangoon/contact_handler.php",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    }
+  );
+
+
+
 
       const data = await res.json();
 
       if (data.success) {
-        setStatus("success");
+        setStatus("Message sent successfully!");
         setForm({ name: "", email: "", message: "" });
       } else {
-        setStatus("error");
+        setStatus("Failed to send message.");
       }
     } catch (err) {
-      setStatus("error");
+      setStatus("Error connecting to server.");
     }
   };
 
   return (
-    <div className={styles.contactPage}>
-      <h1>Contact Us</h1>
-      <p className={styles.subtitle}>Feel free to reach out. We're always here to help.</p>
+    <div className={styles.contactContainer}>
+      <h2>Contact Us</h2>
 
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className={styles.contactForm}>
         <input
           type="text"
           name="name"
@@ -65,23 +69,16 @@ function Contact() {
         <textarea
           name="message"
           placeholder="Your Message"
+          rows="5"
           value={form.message}
           onChange={handleChange}
           required
         ></textarea>
 
-        <button type="submit" disabled={status === "sending"}>
-          {status === "sending" ? "Sending..." : "Send Message"}
-        </button>
-
-        {status === "success" && (
-          <p className={styles.success}>Message sent successfully ✔</p>
-        )}
-
-        {status === "error" && (
-          <p className={styles.error}>Failed to send message ❌</p>
-        )}
+        <button type="submit">Send</button>
       </form>
+
+      {status && <p className={styles.status}>{status}</p>}
     </div>
   );
 }

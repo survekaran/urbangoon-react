@@ -13,7 +13,7 @@ function Login() {
     e.preventDefault();
     setMsg("Loading...");
 
-    const res = await fetch("http://localhost/Urbangoon/Urbangoon/auth/login_handler.php", {
+    const res = await fetch("http://localhost/Urbangoon-Fullstack/Backend/Urbangoon/auth/login_handler.php", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(form),

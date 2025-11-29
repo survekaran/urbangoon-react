@@ -1,25 +1,23 @@
 <?php
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: Content-Type");
+header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Content-Type: application/json");
 
-// Allow CORS (React → PHP)
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: POST");
-header("Access-Control-Allow-Headers: Content-Type");
-
-// Read JSON body
-$data = json_decode(file_get_contents("php://input"), true);
-
-$name = $data["name"];
-$email = $data["email"];
-$message = $data["message"];
-
-// MySQL connection
-$conn = new mysqli("localhost", "root", "", "urbangoon_db");
-
-if ($conn->connect_error) {
-    echo json_encode(["success" => false, "msg" => "DB Error"]);
+// Handle preflight OPTIONS request
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(200);
     exit();
 }
+$conn = new mysqli("localhost", "root", "", "urbangoon_db");
+
+$data = json_decode(file_get_contents("php://input"), true) ?? [];
+
+// prevent warnings if JSON is empty
+$name = $data["name"] ?? "";
+$email = $data["email"] ?? "";
+$message = $data["message"] ?? "";
+
 
 $stmt = $conn->prepare("INSERT INTO contact_form (name, email, message) VALUES (?, ?, ?)");
 $stmt->bind_param("sss", $name, $email, $message);
@@ -27,7 +25,7 @@ $stmt->bind_param("sss", $name, $email, $message);
 if ($stmt->execute()) {
     echo json_encode(["success" => true]);
 } else {
-    echo json_encode(["success" => false]);
+    echo json_encode(["success" => false, "error" => $stmt->error]);
 }
 
 $stmt->close();
