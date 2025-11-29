@@ -1,0 +1,554 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: whitesmoke;
+}
+
+/* Navbar */
+.navbar {
+    background-color: black;
+    font-family: 'Cambria';
+    text-align: center;
+    justify-content:fixed;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.navbar .nav-links li {
+    margin: 0 15px;
+}
+
+.navbar .nav-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links a:hover {
+    color: #00ff99;
+}
+
+/* Carousel */
+.carousel {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slides {
+    display: none;
+    position: relative;
+}
+
+.slides img {
+    width: 100%;
+    height: 85vh;
+    object-fit: cover;
+}
+
+.caption {
+    position: absolute;
+    bottom: 40px;
+    left: 50px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+/* Dots */
+.dots {
+    text-align: center;
+    padding: 15px 0;
+    background: #222;
+}
+
+.dot {
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin: 0 6px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #00ff99;
+}
+
+/* About section */
+.about {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.about h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #111;
+}
+
+.about p {
+    max-width: 700px;
+    margin: auto;
+    font-size: 18px;
+}
+
+/* Footer */
+footer {
+    background-color: #111;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        flex-direction: column;
+        display: none;
+        background-color: #111;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar .nav-links li {
+        margin: 10px 0;
+    }
+
+    .caption {
+        font-size: 18px;
+        left: 20px;
+    }
+
+    .slides img {
+        height: 60vh;
+    }
+}
+
+.projects {
+    padding: 50px 20px;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+}
+
+.projects h1 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+}
+
+.project-card {
+    background-color: white;
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: scale(1.02);
+}
+
+.project-card h2 {
+    margin: 0 0 10px;
+    color: #2c3e50;
+}
+
+.project-card p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.about {
+  padding: 60px 30px;
+  max-width: 800px;
+  margin: auto;
+  background-color: #fff;
+  line-height: 1.8;
+  font-size: 18px;
+  color: #333;
+}
+.about h1 {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+.contact {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+.contact h1 {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+.contact-form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.contact-form input,
+.contact-form textarea {
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+.contact-form button {
+  background-color: #2c3e50;
+  color: white;
+  padding: 15px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.contact-form button:hover {
+  background-color: #1a242f;
+}
+
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 30px;
+}
+.project-card {
+  width: 300px;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  background: #f9f9f9;
+}
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* ========================= */
+/* 🔐 Login/Signup Modal */
+/* ========================= */
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  position: relative;
+  animation: popupFade 0.3s ease-in-out;
+}
+
+.modal-content h2 {
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.modal-content form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.modal-content button {
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+  background-color: #1a242f;
+}
+
+.modal-content .close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 24px;
+  color: #555;
+  cursor: pointer;
+}
+
+#toggleAuth {
+  margin-top: 10px;
+  color: #007bff;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Animation for modal popup */
+@keyframes popupFade {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ========================= */
+/* 🏠 Location & Builder Cards */
+/* ========================= */
+.card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px 20px;
+}
+
+.property-card,
+.builder-card {
+  width: 300px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.property-card:hover,
+.builder-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.property-card img,
+.builder-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.property-card h3,
+.builder-card h3 {
+  padding: 12px 15px 0;
+  font-size: 20px;
+  color: #2c3e50;
+}
+
+.property-card p,
+.builder-card p {
+  padding: 5px 15px 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+/* ========================= */
+/* 🛠 Admin Panel (Optional) */
+/* ========================= */
+.admin-panel {
+  padding: 40px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.admin-panel h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.admin-panel table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.admin-panel th,
+.admin-panel td {
+  padding: 15px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.admin-panel th {
+  background-color: #2c3e50;
+  color: white;
+}
+
+.admin-btn {
+  background-color: #00b894;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: background 0.3s ease;
+}
+
+.admin-btn:hover {
+  background-color: #019870;
+}
+
+.profile-box {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: #111;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.profile-menu {
+    display: none;
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.profile-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: black;
+    text-decoration: none;
+    border-bottom: 1px solid #eee;
+}
+
+.profile-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+.auth-section {
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.user-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.user-btn {
+  background: #2c3e50;
+  color: white;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #fff;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 999;
+  border-radius: 6px;
+}
+
+.dropdown-content a {
+  color: #2c3e50;
+  padding: 10px 14px;
+  text-decoration: none;
+  display: block;
+  transition: background 0.3s;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.user-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .cardContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cardContainer {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,60 @@
+.authBox {
+  width: 360px;
+  margin: 80px auto;
+  background: #fff;
+  padding: 35px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+}
+
+.authBox h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input {
+  padding: 13px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+}
+
+input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 3px rgba(0,123,255,0.3);
+}
+
+button {
+  padding: 13px;
+  background: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #005fcc;
+}
+
+.msg {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.switch {
+  margin-top: 12px;
+  font-size: 14px;
+  text-align: center;
+}

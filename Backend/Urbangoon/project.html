@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Projects - Urbangoon Developers</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+      <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo" img.s>Urbangoon Developers</div>
+  <ul class="nav-links">
+    <li><a href="/Urbangoon/Urbangoon/index.php">Home</a></li>
+    <li><a href="/Urbangoon/Urbangoon/about.html">About</a></li>
+    <li><a href="http://localhost/Urbangoon/Urbangoon/project.html">Projects</a></li>    
+    <li><a href="/Urbangoon/Urbangoon/contact.html">Contact</a></li>
+  </ul>
+    </nav>
+  <h1 style="text-align:center;">Our Mega Projects</h1>
+  <div id="projects-container" class="project-grid"></div>
+
+  <script>
+  fetch('fetch_projects.php')
+    .then(res => {
+      if (!res.ok) throw new Error('Network response was not ok');
+      return res.json();
+    })
+    .then(data => {
+      const container = document.getElementById('projects-container');
+      data.forEach(project => {
+        const box = document.createElement('div');
+        box.className = 'project-card';
+        box.innerHTML = `
+          <img src="${project.image_url}" alt="${project.title}" />
+          <h2>${project.title}</h2>
+          <p>${project.description}</p>
+        `;
+        container.appendChild(box);
+      });
+    })
+    .catch(err => {
+      console.error('Fetch error:', err);
+    });
+  </script>
+</body>
+</html>

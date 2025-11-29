@@ -1,0 +1,14 @@
+# React
+Frontend/node_modules/
+Frontend/dist/
+*.log
+
+# PHP
+Backend/vendor/
+
+# Ignore environment files
+*.env
+
+# OS/System files
+.DS_Store
+Thumbs.db

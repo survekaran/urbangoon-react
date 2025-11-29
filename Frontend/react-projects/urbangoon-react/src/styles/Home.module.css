@@ -1,0 +1,315 @@
+.hero {
+  margin-top: 70px;
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+
+.overlay {
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.overlay h1 {
+  font-size: 55px;
+  font-weight: 700;
+  text-shadow: 0px 3px 20px rgba(0, 0, 0, 0.8);
+}
+
+.overlay p {
+  font-size: 20px;
+  opacity: 0.85;
+}
+
+.btn {
+  padding: 12px 28px;
+  border-radius: 8px;
+  background: #ffcb1f;
+  border: none;
+  font-weight: 600;
+  color: #111;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background: #ffdb4d;
+  transform: scale(1.04);
+}
+
+.projects {
+  padding: 60px 40px;
+  background: #fedcdc;
+  color: #fff;
+  text-align: center;
+}
+
+.projects h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.card {
+  background: #1c1c1c;
+  padding: 15px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #222;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 20px rgba(255, 255, 255, 0.08);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card h3 {
+  margin: 12px 0;
+}
+
+.card p {
+  font-size: 15px;
+  color: #ccc;
+  margin-bottom: 15px;
+}
+
+.bookBtn {
+  padding: 10px 20px;
+  background: #ffcf33;
+  color: #111;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.bookBtn:hover {
+  background: #ffc000;
+}
+
+/* CONTACT SECTION */
+.contact {
+  padding: 60px 40px;
+  background: #0e0e0e;
+  color: #fff;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.contact p {
+  color: #aaa;
+  margin-bottom: 35px;
+  font-size: 15px;
+}
+
+.contactForm {
+  max-width: 550px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contactForm input,
+.contactForm textarea {
+  background: #141414;
+  border: 1px solid #222;
+  padding: 12px;
+  color: #e6e6e6;
+  font-size: 15px;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.contactForm input:focus,
+.contactForm textarea:focus {
+  border-color: #ffcf33;
+}
+
+.contactForm button {
+  background: #ffcf33;
+  color: #111;
+  padding: 12px;
+  border: none;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contactForm button:hover {
+  background: #ffc000;
+}
+
+.statusMsg {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #ffcf33;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .contact {
+    padding: 50px 20px;
+  }
+
+  .contactForm {
+    width: 100%;
+  }
+}
+
+/* SCROLL FADE ANIMATION */
+.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.7s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card {
+  background: rgba(20, 20, 20, 0.5);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 10px 35px rgba(255, 255, 255, 0.1);
+}
+
+.bookBtn {
+  padding: 10px 22px;
+  background: #ffcb1f;
+  color: #111;
+  border: none;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.bookBtn:hover {
+  background: #ffdb4d;
+}
+
+/* === VILLA CARDS (GLASS WHITE) === */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: rgba(234, 12, 12, 0.4);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 15px;
+  width: 320px;
+  border: 1px solid rgba(255,255,255,0.5);
+  box-shadow: 0px 6px 22px rgba(0, 0, 0, 0.08);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0px 14px 38px rgba(0, 0, 0, 0.15);
+}
+
+.cardImg img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+.cardInfo {
+  margin-top: 12px;
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardTop h3 {
+  font-size: 18px;
+  color: #111;
+}
+
+.rating {
+  background: #fff8c9;
+  padding: 3px 8px;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #836000;
+}
+
+.location {
+  color: #777;
+  font-size: 13px;
+  margin-top: 3px;
+}
+
+.desc {
+  font-size: 14px;
+  color: #444;
+  margin: 8px 0;
+}
+
+.price {
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+}
+
+/* Book Button */
+.bookBtn {
+  padding: 10px 20px;
+  background: #ffc400;
+  border: none;
+  border-radius: 10px;
+  color: #111;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: 0.3s ease;
+}
+
+.bookBtn:hover {
+  background: #ffdd50;
+}

@@ -1,0 +1,90 @@
+.navbar {
+  width: 100%;
+  padding: 15px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+/* LOGO */
+.logo a {
+  font-size: 26px;
+  font-weight: 700;
+  color: #000;
+  text-decoration: none;
+}
+
+/* MENU */
+.menu {
+  display: flex;
+  gap: 35px;
+  list-style: none;
+}
+
+.menu li a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
+  font-weight: 500;
+}
+
+.menu li a:hover {
+  color: #007bff;
+}
+
+/* RIGHT SIDE */
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* SEARCH BAR */
+.searchBox {
+  background: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  padding: 6px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.searchBox input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 15px;
+}
+
+.searchIcon {
+  color: #666;
+}
+
+/* LOGIN / SIGNUP */
+.authLinks {
+  font-size: 15px;
+}
+
+.authLinks a {
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+}
+
+.authLinks a:hover {
+  color: #007bff;
+}
+
+/* USER PROFILE ICON */
+.profileBtn {
+  color: #444;
+}
+.profileBtn:hover {
+  color: #007bff;
+}

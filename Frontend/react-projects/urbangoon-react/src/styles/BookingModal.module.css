@@ -1,0 +1,72 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+}
+
+.modal {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(14px);
+  padding: 25px;
+  width: 350px;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  position: relative;
+  animation: fadeSlide 0.2s ease;
+}
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.closeBtn {
+  position: absolute;
+  right: 14px;
+  top: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #444;
+  cursor: pointer;
+}
+
+.price {
+  margin-top: -4px;
+  font-size: 15px;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form input {
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  outline: none;
+}
+
+.submitBtn {
+  margin-top: 10px;
+  padding: 12px;
+  background: #ffc400;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submitBtn:hover {
+  background: #ffdb4d;
+}
